@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0e12;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hero {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+#typewriter-text {
+    color: #10bb82;
+    /* Accent color */
+}
+
+.hero-sub {
+    font-size: 1.2rem;
+    color: #a0a0a0;
+}

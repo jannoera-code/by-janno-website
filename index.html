@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>By Janno. | Digital Studio & Web Architecture</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FDFBF7',
+            charcoal: '#1C252E',
+            terracotta: '#C85A32',
+            sigGreen: '#10BB82',
+          },
+          fontFamily: {
+            brand: ['"Special Elite"', 'cursive'],
+            heading: ['Lora', 'serif'],
+            cinzel: ['Cinzel', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,500;0,700;1,400&family=Special+Elite&display=swap"
+    rel="stylesheet">
+</head>
+
+<body
+  class="bg-cream text-charcoal font-body antialiased flex flex-col min-h-screen selection:bg-terracotta selection:text-white">
+
+  <!-- HEADER / NAVIGATION -->
+  <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-amber-900/10">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+      <a href="index.html"
+        class="font-brand text-2xl font-bold tracking-tight text-charcoal hover:text-terracotta transition-colors">
+        By Janno.
+      </a>
+      <nav class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="index.html" class="text-terracotta border-b-2 border-terracotta pb-1 font-semibold">Home</a>
+        <a href="web-development.html" class="text-gray-700 hover:text-terracotta transition-colors">Web Dev</a>
+        <a href="branding.html" class="text-gray-700 hover:text-terracotta transition-colors">Branding</a>
+        <a href="portfolio.html" class="text-gray-700 hover:text-terracotta transition-colors">Portfolio</a>
+        <a href="about.html" class="text-gray-700 hover:text-terracotta transition-colors">About Me</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- HERO SECTION WITH FIXED IMAGE DISPLAY -->
+    <section class="py-28 bg-cream border-b border-amber-900/10 text-center relative overflow-hidden">
+
+      <!-- Direct HTML Image Tag Overlay for reliable loading -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <img src="images/luca-bravo-9l_326FISzk-unsplash.jpg" alt="Workspace Background"
+          class="w-full h-full object-cover opacity-20 mix-blend-multiply">
+      </div>
+
+      <div class="relative z-10 max-w-4xl mx-auto px-6">
+        <span
+          class="hero-item inline-block text-xs font-bold text-terracotta uppercase tracking-widest mb-4 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-terracotta/20 shadow-sm">
+          Digital Studio & Architecture
+        </span>
+
+        <h1 class="hero-item font-heading text-4xl sm:text-6xl md:text-7xl font-bold text-charcoal mb-6 leading-tight">
+          Custom Web Systems & Brand Ecosystems
+        </h1>
+
+        <p class="hero-item text-gray-700 text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+          Designing ultra-fast, commission-free web platforms and tailored brand identities built to drive direct
+          revenue.
+        </p>
+
+        <div class="hero-item flex flex-wrap justify-center gap-4">
+          <a href="portfolio.html"
+            class="px-8 py-3.5 bg-terracotta text-white rounded-md text-sm font-medium hover:bg-amber-800 transition-all shadow-md hover:-translate-y-0.5">
+            Explore Work
+          </a>
+          <a href="web-development.html"
+            class="px-8 py-3.5 bg-white border border-amber-900/20 text-charcoal rounded-md text-sm font-medium hover:border-terracotta transition-all shadow-sm">
+            Web Architecture &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED CASE STUDY: STAY IN GEORGE (FIXED LOGO & BRAND GREEN) -->
+    <section class="py-20 bg-white">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <span class="text-xs font-bold text-terracotta uppercase tracking-widest block mb-2">Featured Project</span>
+          <h2 class="font-heading text-3xl md:text-5xl font-bold text-charcoal">Stay In George — Direct Booking Platform
+          </h2>
+        </div>
+
+        <div
+          class="bg-cream rounded-2xl p-8 md:p-12 border border-amber-900/10 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+          <!-- Left Column Details -->
+          <div class="lg:col-span-6 space-y-6">
+            <span
+              class="inline-block text-xs font-semibold px-3 py-1 bg-sigGreen/15 text-emerald-800 rounded-full border border-sigGreen/30">
+              Active Accommodation Platform
+            </span>
+
+            <p class="text-gray-700 text-base leading-relaxed">
+              Custom property management site designed to eliminate third-party commission fees with direct WhatsApp
+              booking pathways.
+            </p>
+
+            <ul class="space-y-3 text-sm font-medium text-gray-800">
+              <li class="flex items-center gap-2">
+                <span class="text-sigGreen font-bold">✓</span> Zero Commission Fees
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-sigGreen font-bold">✓</span> Sub-Second Static Speed
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="text-sigGreen font-bold">✓</span> Integrated Property Roster
+              </li>
+            </ul>
+
+            <div class="pt-2">
+              <a href="portfolio.html"
+                class="inline-flex items-center gap-2 px-6 py-3 bg-terracotta text-white text-sm font-medium rounded-md hover:bg-amber-800 transition-colors shadow">
+                View Style Sheet & Case Study &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: BRAND DEMO SLOT WITH LOGO FIX -->
+          <div class="lg:col-span-6">
+            <div class="bg-white p-6 rounded-xl border border-amber-900/10 shadow-sm text-center">
+
+              <!-- Brand Title & Swatch Indicator -->
+              <div class="flex items-center justify-between mb-4 pb-3 border-b border-gray-100">
+                <span class="font-heading font-bold text-lg text-emerald-800">Stay In George</span>
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-[#10BB82] border border-black/10 inline-block"></span>
+                  <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">BRAND HEX: #10BB82</span>
+                </div>
+              </div>
+
+              <!-- DEMO CONTAINER WITH LOGO -->
+              <div
+                class="demo-card-slot bg-[#10BB82] text-white rounded-lg p-8 flex flex-col items-center justify-center min-h-[240px] shadow-inner transition-transform hover:scale-[1.01] duration-300 relative overflow-hidden group">
+
+                <!-- Subtle Background Pattern -->
+                <div
+                  class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]">
+                </div>
+
+                <!-- Stay In George Logo Image with Fallback handling -->
+                <img src="images/SIG Logo (cropped).png" alt="Stay In George Logo"
+                  class="h-20 w-auto mb-4 object-contain filter drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+                  onError="this.onerror=null; this.src='images/SIG Logo (2).png';">
+
+                <span
+                  class="text-xs font-semibold tracking-widest uppercase bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white mb-2">
+                  Direct Booking Engine
+                </span>
+
+                <p class="text-xs text-white/90 max-w-xs text-center leading-relaxed">
+                  Custom static architecture running on high-performance edge servers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-cream border-t border-amber-900/10 py-8 text-center text-sm text-gray-500">
+    <div class="max-w-7xl mx-auto px-6">
+      <p>&copy; 2026 By Janno. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    // Hero Stagger Entrance
+    gsap.from(".hero-item", {
+      y: 35,
+      opacity: 0,
+      duration: 0.9,
+      stagger: 0.15,
+      ease: "power3.out"
+    });
+  </script>
+</body>
+
+</html>

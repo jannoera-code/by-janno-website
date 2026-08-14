@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio & Brand Style Sheets | By Janno.</title>
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Special+Elite&display=swap"
+        rel="stylesheet">
+
+    <!-- TAILWIND CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // By Janno Palette
+                        terracotta: { DEFAULT: '#AA4628', hover: '#8C381E' },
+                        cream: '#FDFBF7',
+                        charcoal: '#1F2937',
+
+                        // Stay In George Palette
+                        brandGreen: '#10bb82',
+
+                        // Crafted By Grace Palette
+                        earthyGrape: '#6B3F5E',
+                        sageLeaf: '#84956C',
+                        warmTaupe: '#887361',
+                        oliveTaupe: '#837861',
+                        linenCream: '#F4F2E4'
+                    },
+                    fontFamily: {
+                        brand: ['"Special Elite"', 'cursive'],
+                        heading: ['Lora', 'serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7;
+            color: #1F2937;
+            overflow-x: hidden;
+        }
+
+        .font-brand {
+            font-family: 'Special Elite', cursive;
+        }
+
+        .font-heading {
+            font-family: 'Lora', serif;
+        }
+
+        .font-cinzel {
+            font-family: 'Cinzel', serif;
+        }
+    </style>
+</head>
+
+<body class="antialiased flex flex-col min-h-screen">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-amber-900/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html"
+                class="font-brand text-2xl font-bold text-charcoal hover:text-terracotta transition-colors">By
+                Janno.</a>
+
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="index.html" class="text-gray-700 hover:text-terracotta transition-colors">Home</a>
+                <a href="web-development.html" class="text-gray-700 hover:text-terracotta transition-colors">Web Dev</a>
+                <a href="branding.html" class="text-gray-700 hover:text-terracotta transition-colors">Branding</a>
+                <a href="portfolio.html"
+                    class="text-terracotta border-b-2 border-terracotta pb-1 font-bold">Portfolio</a>
+                <a href="about.html" class="text-gray-700 hover:text-terracotta transition-colors">About Me</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- HERO WITH GSAP EFFECT #1: PARALLAX SCROLL -->
+        <section class="relative h-[450px] overflow-hidden flex items-center justify-center text-center">
+            <!-- Background Image with Parallax -->
+            <div class="parallax-container absolute inset-0 w-full h-full overflow-hidden">
+                <img src="images/faizur-rehman-pHPzdEHN6Os-unsplash.jpg" alt="Developer Workspace"
+                    class="parallax-img w-full h-[130%] object-cover absolute top-0 left-0 brightness-50" />
+            </div>
+
+            <div class="relative z-10 max-w-4xl mx-auto px-6 text-white">
+                <span class="text-xs font-bold text-amber-200 uppercase tracking-widest block mb-2">Selected
+                    Deliverables</span>
+                <h1
+                    class="portfolio-hero-title font-heading text-3xl sm:text-5xl md:text-6xl font-bold text-cream mb-4">
+                    Portfolio & Brand Style Sheets
+                </h1>
+                <p class="text-amber-100 text-lg max-w-2xl mx-auto drop-shadow-sm">Explore complete visual identity
+                    systems and live web development case studies.</p>
+            </div>
+        </section>
+
+        <!-- BRAND STYLE SHEETS SHOWCASE -->
+        <section class="py-20 bg-white border-b border-amber-900/10">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-bold text-terracotta uppercase tracking-widest block mb-2">01 / Visual
+                        Identity Architecture</span>
+                    <h2 class="font-cinzel text-3xl md:text-4xl font-bold text-charcoal">Brand Style Sheets</h2>
+                </div>
+
+                <!-- INTERACTIVE BRAND SWITCHER TABS -->
+                <div class="flex justify-center space-x-4 mb-12">
+                    <button id="tab-cbg"
+                        class="brand-tab px-6 py-2.5 rounded-full text-sm font-semibold bg-terracotta text-white shadow-sm transition-all"
+                        onclick="switchBrand('cbg')">
+                        Crafted By Grace
+                    </button>
+                    <button id="tab-bj"
+                        class="brand-tab px-6 py-2.5 rounded-full text-sm font-semibold bg-cream text-charcoal border border-amber-900/10 hover:border-terracotta transition-all"
+                        onclick="switchBrand('bj')">
+                        By Janno. Studio
+                    </button>
+                </div>
+
+                <!-- BRAND SHEET 1: CRAFTED BY GRACE (USES GSAP EFFECT #2: CURTAIN REVEAL) -->
+                <div id="brand-cbg"
+                    class="brand-sheet bg-[#F4F2E4]/60 rounded-2xl p-8 md:p-12 border border-amber-900/10 shadow-sm transition-all duration-300">
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-center gap-8 pb-8 mb-8 border-b border-amber-900/10">
+                        <div class="flex items-center space-x-6">
+                            <!-- Logo with Curtain Reveal -->
+                            <div
+                                class="w-28 h-28 flex-shrink-0 overflow-hidden rounded-full border-2 border-[#887361]/30 bg-white shadow-md">
+                                <img src="images/CRAFTED BY GRACE (3).png" alt="Crafted By Grace Logo"
+                                    class="curtain-reveal w-full h-full object-cover" />
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-earthyGrape uppercase tracking-widest">Client Brand
+                                    Identity</span>
+                                <h3 class="font-cinzel text-3xl font-bold text-[#6B3F5E] mt-1">Crafted By Grace</h3>
+                                <p class="text-sm text-[#887361] mt-1 font-medium">Handmade Goods & Artisanal Studio</p>
+                            </div>
+                        </div>
+
+                        <!-- Aesthetic Photo with Curtain Reveal -->
+                        <div
+                            class="w-full md:w-56 h-36 overflow-hidden rounded-xl shadow-sm border border-amber-900/10">
+                            <img src="images/james-VRY1R2bs000-unsplash.jpg" alt="Artisanal Cross Photography"
+                                class="curtain-reveal w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- COLOR PALETTE -->
+                    <div class="mb-12">
+                        <h4 class="font-cinzel text-lg font-bold text-[#6B3F5E] mb-4">Color Palette</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <div class="p-5 rounded-xl bg-[#6B3F5E] text-white shadow-sm">
+                                <div class="font-bold text-sm mb-6">Earthy Grape</div>
+                                <div class="text-xs opacity-90 font-mono">#6B3F5E</div>
+                            </div>
+                            <div class="p-5 rounded-xl bg-[#84956C] text-white shadow-sm">
+                                <div class="font-bold text-sm mb-6">Sage Leaf</div>
+                                <div class="text-xs opacity-90 font-mono">#84956C</div>
+                            </div>
+                            <div class="p-5 rounded-xl bg-[#887361] text-white shadow-sm">
+                                <div class="font-bold text-sm mb-6">Warm Taupe</div>
+                                <div class="text-xs opacity-90 font-mono">#887361</div>
+                            </div>
+                            <div class="p-5 rounded-xl bg-[#837861] text-white shadow-sm">
+                                <div class="font-bold text-sm mb-6">Olive Taupe</div>
+                                <div class="text-xs opacity-90 font-mono">#837861</div>
+                            </div>
+                            <div
+                                class="p-5 rounded-xl bg-[#F4F2E4] text-[#6B3F5E] border border-amber-900/15 shadow-sm">
+                                <div class="font-bold text-sm mb-6">Linen Cream</div>
+                                <div class="text-xs text-gray-600 font-mono">#F4F2E4</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TYPOGRAPHY SPECIFICATION -->
+                    <div>
+                        <h4 class="font-cinzel text-lg font-bold text-[#6B3F5E] mb-4">Typography Hierarchy</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="p-6 bg-white/80 rounded-xl border border-amber-900/10">
+                                <span class="text-xs font-bold text-[#84956C] uppercase block mb-1">Primary
+                                    Header</span>
+                                <div class="font-cinzel text-2xl font-bold text-[#6B3F5E] mb-2">Cinzel</div>
+                                <p class="text-xs text-gray-500">Used for primary brand title and elegant serif
+                                    headings.</p>
+                            </div>
+                            <div class="p-6 bg-white/80 rounded-xl border border-amber-900/10">
+                                <span class="text-xs font-bold text-[#84956C] uppercase block mb-1">Editorial &
+                                    Body</span>
+                                <div class="font-heading text-2xl font-semibold text-[#6B3F5E] mb-2">Lora</div>
+                                <p class="text-xs text-gray-500">Used for brand narrative, artisanal stories, and
+                                    product descriptions.</p>
+                            </div>
+                            <div class="p-6 bg-white/80 rounded-xl border border-amber-900/10">
+                                <span class="text-xs font-bold text-[#84956C] uppercase block mb-1">UI & Details</span>
+                                <div class="font-body text-2xl font-bold text-[#6B3F5E] mb-2">Inter</div>
+                                <p class="text-xs text-gray-500">Used for technical details, product tags, price lists,
+                                    and navigation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BRAND SHEET 2: BY JANNO STUDIO (USES GSAP EFFECT #3: ZOOM / SCALE-ON-SCROLL) -->
+                <div id="brand-bj"
+                    class="brand-sheet bg-cream rounded-2xl p-8 md:p-12 border border-amber-900/10 shadow-sm hidden transition-all duration-300">
+                    <div
+                        class="flex flex-col md:flex-row justify-between items-center gap-8 pb-8 mb-8 border-b border-amber-900/10">
+                        <div>
+                            <span class="text-xs font-bold text-terracotta uppercase tracking-widest">Internal Studio
+                                Brand</span>
+                            <h3 class="font-brand text-3xl font-bold text-charcoal mt-1">By Janno.</h3>
+                            <p class="text-sm text-gray-600 mt-1 font-medium">Digital Systems & Brand Architecture</p>
+                        </div>
+
+                        <!-- Studio Monitor Asset with Scale Effect -->
+                        <div
+                            class="scale-wrapper w-full md:w-64 h-40 overflow-hidden rounded-xl border border-amber-900/10 shadow-md">
+                            <img src="images/Untitled design.png" alt="By Janno Monitor Artwork"
+                                class="scale-img w-full h-full object-cover" />
+                        </div>
+                    </div>
+
+                    <!-- COLOR PALETTE -->
+                    <div class="mb-12">
+                        <h4 class="font-heading text-lg font-bold text-charcoal mb-4">Color Palette</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="p-5 rounded-xl bg-[#AA4628] text-white shadow-sm">
+                                <div class="font-bold text-sm mb-6">Terracotta</div>
+                                <div class="text-xs opacity-90 font-mono">#AA4628</div>
+                            </div>
+                            <div class="p-5 rounded-xl bg-[#1F2937] text-white shadow-sm">
+                                <div class="font-bold text-sm mb-6">Charcoal</div>
+                                <div class="text-xs opacity-90 font-mono">#1F2937</div>
+                            </div>
+                            <div class="p-5 rounded-xl bg-[#8C9985] text-white shadow-sm">
+                                <div class="font-bold text-sm mb-6">Sage</div>
+                                <div class="text-xs opacity-90 font-mono">#8C9985</div>
+                            </div>
+                            <div class="p-5 rounded-xl bg-[#FDFBF7] text-charcoal border border-amber-900/15 shadow-sm">
+                                <div class="font-bold text-sm mb-6">Cream</div>
+                                <div class="text-xs text-gray-600 font-mono">#FDFBF7</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TYPOGRAPHY SPECIFICATION -->
+                    <div>
+                        <h4 class="font-heading text-lg font-bold text-charcoal mb-4">Typography Hierarchy</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="p-6 bg-white rounded-xl border border-amber-900/10">
+                                <span class="text-xs font-bold text-terracotta uppercase block mb-1">Display Logo
+                                    Font</span>
+                                <div class="font-brand text-2xl font-bold text-charcoal mb-2">Special Elite</div>
+                                <p class="text-xs text-gray-500">Used for core studio brand wordmark and hero accents.
+                                </p>
+                            </div>
+                            <div class="p-6 bg-white rounded-xl border border-amber-900/10">
+                                <span class="text-xs font-bold text-terracotta uppercase block mb-1">Primary
+                                    Headings</span>
+                                <div class="font-heading text-2xl font-semibold text-charcoal mb-2">Lora</div>
+                                <p class="text-xs text-gray-500">Used for section headings and editorial titles.</p>
+                            </div>
+                            <div class="p-6 bg-white rounded-xl border border-amber-900/10">
+                                <span class="text-xs font-bold text-terracotta uppercase block mb-1">Body &
+                                    Navigation</span>
+                                <div class="font-body text-2xl font-bold text-charcoal mb-2">Inter</div>
+                                <p class="text-xs text-gray-500">Used for body text, navigation elements, and technical
+                                    UI.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- LIVE WEB PLATFORMS CASE STUDY -->
+        <section class="py-20 bg-cream">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="text-xs font-bold text-brandGreen uppercase tracking-widest block mb-2">02 / Live Web
+                        Systems</span>
+                    <h2 class="font-cinzel text-3xl md:text-4xl font-bold text-charcoal">Featured Accommodation Engine
+                    </h2>
+                </div>
+
+                <div
+                    class="bg-white rounded-2xl p-8 md:p-12 border border-amber-900/10 shadow-sm grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <div class="space-y-6">
+                        <div
+                            class="inline-block px-3 py-1 bg-brandGreen/10 text-brandGreen font-bold text-xs rounded-full">
+                            Active Direct Booking Platform
+                        </div>
+                        <h3 class="font-heading text-3xl font-bold text-charcoal">Stay In George</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Custom property management platform designed and built for short-term accommodation units in
+                            George, South Africa. Engineered to eliminate 15%+ OTA platform commissions by directing
+                            guests through automated WhatsApp reservation pathways.
+                        </p>
+
+                        <div
+                            class="space-y-3 border-t border-b border-amber-900/10 py-4 text-sm text-gray-700 font-medium">
+                            <div class="flex justify-between"><span class="text-gray-500">Primary Brand Color:</span>
+                                <span class="font-mono text-brandGreen font-bold">#10bb82</span>
+                            </div>
+                            <div class="flex justify-between"><span class="text-gray-500">Architecture:</span>
+                                <span>Static Edge Network (Zero Database Latency)</span>
+                            </div>
+                            <div class="flex justify-between"><span class="text-gray-500">Key Feature:</span>
+                                <span>Direct WhatsApp Reservation Flow</span>
+                            </div>
+                        </div>
+
+                        <a href="https://www.stayingeorge.co.za" target="_blank"
+                            class="inline-flex items-center px-6 py-3 bg-brandGreen text-white font-medium rounded-md text-sm hover:opacity-90 transition-opacity">
+                            Visit Live Platform (stayingeorge.co.za) →
+                        </a>
+                    </div>
+
+                    <!-- STAY IN GEORGE LOGO SHOWCASE (SCALE ON SCROLL) -->
+                    <div
+                        class="bg-cream p-8 rounded-xl border border-amber-900/10 flex flex-col items-center justify-center space-y-6 text-center">
+                        <div class="scale-wrapper w-36 h-36 rounded-full overflow-hidden shadow-md">
+                            <img src="images/SIG Logo (2).png" alt="Stay In George Accommodation Badge"
+                                class="scale-img w-full h-full object-cover" />
+                        </div>
+                        <div class="scale-wrapper w-44 h-24 overflow-hidden rounded-lg">
+                            <img src="images/SIG Logo png (cropped).png" alt="Stay In George 10 On York Logo"
+                                class="scale-img w-full h-full object-contain" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-amber-900/10 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-400">
+            &copy; 2026 By Janno. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- GSAP ENGINE & PLUGINS -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // -------------------------------------------------------------
+        // GSAP ANIMATION #1: PARALLAX SCROLL EFFECT
+        // -------------------------------------------------------------
+        gsap.to(".parallax-img", {
+            yPercent: -20,
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".parallax-container",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+
+        // -------------------------------------------------------------
+        // GSAP ANIMATION #2: CURTAIN WIPE / MASK REVEAL
+        // -------------------------------------------------------------
+        gsap.utils.toArray('.curtain-reveal').forEach(img => {
+            gsap.fromTo(img,
+                { clipPath: "polygon(0 100%, 100% 100%, 100% 100%, 0 100%)" },
+                {
+                    clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+                    duration: 1.2,
+                    ease: "power3.inOut",
+                    scrollTrigger: {
+                        trigger: img,
+                        start: "top 85%"
+                    }
+                }
+            );
+        });
+
+        // -------------------------------------------------------------
+        // GSAP ANIMATION #3: SMOOTH ZOOM / SCALE-ON-SCROLL
+        // -------------------------------------------------------------
+        gsap.utils.toArray('.scale-img').forEach(img => {
+            gsap.from(img, {
+                scale: 1.25,
+                duration: 1.4,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: img,
+                    start: "top 85%"
+                }
+            });
+        });
+
+        // -------------------------------------------------------------
+        // BRAND TAB SWITCHER FUNCTION
+        // -------------------------------------------------------------
+        function switchBrand(brand) {
+            const cbg = document.getElementById('brand-cbg');
+            const bj = document.getElementById('brand-bj');
+            const tabCbg = document.getElementById('tab-cbg');
+            const tabBj = document.getElementById('tab-bj');
+
+            if (brand === 'cbg') {
+                cbg.classList.remove('hidden');
+                bj.classList.add('hidden');
+
+                tabCbg.className = "brand-tab px-6 py-2.5 rounded-full text-sm font-semibold bg-terracotta text-white shadow-sm transition-all";
+                tabBj.className = "brand-tab px-6 py-2.5 rounded-full text-sm font-semibold bg-cream text-charcoal border border-amber-900/10 hover:border-terracotta transition-all";
+            } else {
+                bj.classList.remove('hidden');
+                cbg.classList.add('hidden');
+
+                tabBj.className = "brand-tab px-6 py-2.5 rounded-full text-sm font-semibold bg-terracotta text-white shadow-sm transition-all";
+                tabCbg.className = "brand-tab px-6 py-2.5 rounded-full text-sm font-semibold bg-cream text-charcoal border border-amber-900/10 hover:border-terracotta transition-all";
+            }
+
+            // Refresh ScrollTrigger so positions recalculate after tab swap
+            ScrollTrigger.refresh();
+        }
+    </script>
+</body>
+<script>
+    gsap.from(".portfolio-hero-title", {
+        scale: 0.95,
+        opacity: 0,
+        y: 15,
+        duration: 1.1,
+        ease: "power2.out"
+    });
+</script>
+
+</html>

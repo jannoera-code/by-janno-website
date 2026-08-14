@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Architecture & GSAP Lab | By Janno.</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDFBF7',
+                        charcoal: '#1C252E',
+                        terracotta: '#C85A32',
+                    },
+                    fontFamily: {
+                        brand: ['"Special Elite"', 'cursive'],
+                        heading: ['Lora', 'serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,500;0,700;1,400&family=Special+Elite&display=swap"
+        rel="stylesheet">
+</head>
+
+<body
+    class="bg-cream text-charcoal font-body antialiased flex flex-col min-h-screen selection:bg-terracotta selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-amber-900/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html"
+                class="font-brand text-2xl font-bold tracking-tight text-charcoal hover:text-terracotta transition-colors">
+                By Janno.
+            </a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="index.html" class="text-gray-700 hover:text-terracotta transition-colors">Home</a>
+                <a href="web-development.html"
+                    class="text-terracotta border-b-2 border-terracotta pb-1 font-semibold">Web Dev</a>
+                <a href="branding.html" class="text-gray-700 hover:text-terracotta transition-colors">Branding</a>
+                <a href="portfolio.html" class="text-gray-700 hover:text-terracotta transition-colors">Portfolio</a>
+                <a href="about.html" class="text-gray-700 hover:text-terracotta transition-colors">About Me</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- HERO SECTION WITH FIXED IMAGE DISPLAY -->
+        <section class="py-24 bg-cream border-b border-amber-900/10 text-center relative overflow-hidden">
+
+            <!-- Direct HTML Image Overlay for reliable image loading -->
+            <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
+                <img src="images/lee-campbell-DtDlVpy-vvQ-unsplash.jpg" alt="Developer Setup Background"
+                    class="w-full h-full object-cover opacity-20 mix-blend-multiply">
+            </div>
+
+            <div class="relative z-10 max-w-4xl mx-auto px-6">
+                <span
+                    class="gsap-hero-item inline-block text-xs font-bold text-terracotta uppercase tracking-widest mb-4 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full border border-terracotta/20 shadow-sm">
+                    High-Performance Web Systems
+                </span>
+
+                <h1
+                    class="gsap-hero-item font-heading text-4xl sm:text-5xl md:text-6xl font-bold text-charcoal mb-6 leading-tight">
+                    Web Architecture Built for <br class="hidden md:inline" />
+                    <span id="dynamic-web-text" class="text-terracotta inline-block min-w-[280px]">Direct
+                        Conversations</span>
+                </h1>
+
+                <p class="gsap-hero-item text-gray-700 text-lg sm:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+                    Eliminating third-party platform commissions with custom static edge web platforms and automated
+                    direct-booking channels.
+                </p>
+
+                <div class="gsap-hero-item flex justify-center gap-4">
+                    <a href="#gsap-lab"
+                        class="inline-block px-8 py-3.5 bg-terracotta text-white rounded-md text-sm font-medium hover:bg-amber-800 transition-all shadow-md hover:-translate-y-0.5">
+                        Interactive GSAP Lab &darr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPANDED GSAP SHOWCASE & INTERACTIVE PLAYGROUND -->
+        <section id="gsap-lab" class="py-24 bg-cream border-t border-amber-900/10 relative overflow-hidden">
+            <div class="max-w-6xl mx-auto px-6">
+
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-bold text-terracotta uppercase tracking-widest block mb-2">Interactive
+                        Showcase</span>
+                    <h2 class="font-heading text-3xl md:text-5xl font-bold text-charcoal mb-4">GSAP Motion & Interactive
+                        Playground</h2>
+                    <p class="text-gray-600 text-base">
+                        A live playground showcasing advanced animations, physics, magnetic buttons, matrix decoders,
+                        and dynamic timelines.
+                    </p>
+                </div>
+
+                <!-- 6 INTERACTIVE MODULES GRID -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    <!-- MODULE 1: STAGGER MATRIX WAVE -->
+                    <div
+                        class="bg-white p-6 rounded-2xl border border-amber-900/10 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-xs font-bold text-terracotta uppercase">01 / Motion Physics</span>
+                                <button id="trigger-wave-btn"
+                                    class="px-3 py-1 bg-terracotta text-white text-xs font-medium rounded hover:bg-amber-800 transition-colors">
+                                    Trigger Wave ⚡
+                                </button>
+                            </div>
+                            <h3 class="font-heading text-lg font-bold text-charcoal mb-2">Radial Stagger Matrix</h3>
+                            <p class="text-xs text-gray-500 mb-4">2D radial wave sequence across a grid of nodes using
+                                GSAP grid staggers.</p>
+                        </div>
+
+                        <!-- 16-Grid Matrix -->
+                        <div class="grid grid-cols-4 gap-2 py-2" id="grid-matrix">
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                01</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                02</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                03</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                04</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                05</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                06</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                07</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                08</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                09</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                10</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                11</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                12</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                13</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                14</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                15</div>
+                            <div
+                                class="grid-node h-10 bg-cream border border-amber-900/10 rounded-lg flex items-center justify-center font-mono text-xs text-terracotta font-bold">
+                                16</div>
+                        </div>
+                    </div>
+
+                    <!-- MODULE 2: LIVE TIMELINE CONTROLLER -->
+                    <div
+                        class="bg-white p-6 rounded-2xl border border-amber-900/10 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-terracotta uppercase block mb-1">02 / Timeline
+                                Mechanics</span>
+                            <h3 class="font-heading text-lg font-bold text-charcoal mb-2">Timeline Controller</h3>
+                            <p class="text-xs text-gray-500 mb-4">Control a multi-stage GSAP animation sequence live
+                                with state controls.</p>
+                        </div>
+
+                        <!-- Stage Track -->
+                        <div
+                            class="h-24 bg-cream border border-amber-900/10 rounded-xl relative overflow-hidden flex items-center px-4 mb-4">
+                            <div id="timeline-box"
+                                class="w-12 h-12 bg-charcoal rounded-lg text-white font-bold text-[10px] flex items-center justify-center shadow-md">
+                                BY JANNO
+                            </div>
+                        </div>
+
+                        <!-- Control Buttons -->
+                        <div class="grid grid-cols-2 gap-2">
+                            <button id="tl-play"
+                                class="py-1.5 bg-charcoal text-white text-xs font-medium rounded hover:bg-black transition-colors">▶
+                                Play</button>
+                            <button id="tl-pause"
+                                class="py-1.5 bg-gray-200 text-gray-700 text-xs font-medium rounded hover:bg-gray-300 transition-colors">⏸
+                                Pause</button>
+                            <button id="tl-reverse"
+                                class="py-1.5 bg-gray-200 text-gray-700 text-xs font-medium rounded hover:bg-gray-300 transition-colors">🔄
+                                Reverse</button>
+                            <button id="tl-speed"
+                                class="py-1.5 bg-terracotta/10 text-terracotta text-xs font-medium rounded hover:bg-terracotta/20 transition-colors">⚡
+                                2x Speed</button>
+                        </div>
+                    </div>
+
+                    <!-- MODULE 3: 3D CURSOR VECTOR TILT -->
+                    <div class="bg-white p-6 rounded-2xl border border-amber-900/10 shadow-sm flex flex-col justify-between"
+                        id="tilt-card-wrapper">
+                        <div>
+                            <span class="text-xs font-bold text-terracotta uppercase block mb-1">03 / Interactive
+                                Vectoring</span>
+                            <h3 class="font-heading text-lg font-bold text-charcoal mb-2">3D Perspective Tilt</h3>
+                            <p class="text-xs text-gray-500 mb-4">Hover cursor over card to see real-time 3D perspective
+                                rotation.</p>
+                        </div>
+
+                        <div id="tilt-card"
+                            class="bg-cream border border-amber-900/10 rounded-xl p-6 text-center cursor-pointer transition-shadow hover:shadow-xl relative overflow-hidden my-auto">
+                            <span class="font-brand text-xl font-bold text-terracotta block mb-1">Hover Area</span>
+                            <p class="text-[11px] text-gray-600 font-mono">Perspective: 800px | Inertia</p>
+                        </div>
+                    </div>
+
+                    <!-- MODULE 4: KINETIC COUNTER & MORPH -->
+                    <div
+                        class="bg-white p-6 rounded-2xl border border-amber-900/10 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-terracotta uppercase block mb-1">04 / Numerical
+                                Engine</span>
+                            <h3 class="font-heading text-lg font-bold text-charcoal mb-2">Kinetic Counter</h3>
+                            <p class="text-xs text-gray-500 mb-4">Smooth mathematical interpolation & counter engine.
+                            </p>
+                        </div>
+
+                        <div
+                            class="bg-cream border border-amber-900/10 rounded-xl p-4 flex justify-around items-center mb-4">
+                            <div class="text-center">
+                                <span class="text-[10px] font-bold text-gray-400 block">SPEED SCORE</span>
+                                <span id="counter-1"
+                                    class="font-heading text-3xl font-bold text-terracotta">0</span><span
+                                    class="text-lg font-bold text-terracotta">%</span>
+                            </div>
+                            <div class="h-8 w-[1px] bg-amber-900/10"></div>
+                            <div class="text-center">
+                                <span class="text-[10px] font-bold text-gray-400 block">COMMISSIONS SAVED</span>
+                                <span class="text-lg font-bold text-emerald-600">R</span><span id="counter-2"
+                                    class="font-heading text-3xl font-bold text-emerald-600">0</span>
+                            </div>
+                        </div>
+
+                        <button id="trigger-counter-btn"
+                            class="w-full py-2 bg-terracotta text-white text-xs font-semibold rounded hover:bg-amber-800 transition-colors shadow">
+                            Recalculate 📈
+                        </button>
+                    </div>
+
+                    <!-- MODULE 5: NEW - MAGNETIC PHYSICS BUTTON -->
+                    <div class="bg-white p-6 rounded-2xl border border-amber-900/10 shadow-sm flex flex-col justify-between"
+                        id="magnetic-area">
+                        <div>
+                            <span class="text-xs font-bold text-terracotta uppercase block mb-1">05 / Elastic
+                                Physics</span>
+                            <h3 class="font-heading text-lg font-bold text-charcoal mb-2">Magnetic Attraction</h3>
+                            <p class="text-xs text-gray-500 mb-4">Move your mouse near the target below to feel spring
+                                magnetic pull.</p>
+                        </div>
+
+                        <div
+                            class="h-28 bg-cream border border-amber-900/10 rounded-xl flex items-center justify-center relative overflow-hidden mb-4">
+                            <button id="magnetic-btn"
+                                class="px-5 py-2.5 bg-terracotta text-white font-medium text-xs rounded-full shadow-lg pointer-events-auto">
+                                Hover Near Me 🧲
+                            </button>
+                        </div>
+
+                        <span class="text-[10px] text-gray-400 text-center font-mono">GSAP Elastic Ease & QuickTo</span>
+                    </div>
+
+                    <!-- MODULE 6: NEW - CYBERPUNK TEXT DECODER -->
+                    <div
+                        class="bg-white p-6 rounded-2xl border border-amber-900/10 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-bold text-terracotta uppercase block mb-1">06 / Text
+                                Engineering</span>
+                            <h3 class="font-heading text-lg font-bold text-charcoal mb-2">Matrix Text Scrambler</h3>
+                            <p class="text-xs text-gray-500 mb-4">Dynamic character scrambling & decryption generator.
+                            </p>
+                        </div>
+
+                        <div
+                            class="bg-charcoal rounded-xl p-4 text-center mb-4 min-h-[70px] flex items-center justify-center">
+                            <span id="scramble-text"
+                                class="font-mono text-emerald-400 font-bold text-sm tracking-wider">
+                                SYSTEM_READY
+                            </span>
+                        </div>
+
+                        <button id="trigger-scramble-btn"
+                            class="w-full py-2 bg-charcoal text-white text-xs font-semibold rounded hover:bg-black transition-colors">
+                            Scramble Characters 💻
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-cream border-t border-amber-900/10 py-8 text-center text-sm text-gray-500">
+        <div class="max-w-7xl mx-auto px-6">
+            <p>&copy; 2026 By Janno. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <script>
+        // 1. Hero Stagger Entrance
+        gsap.from(".gsap-hero-item", {
+            y: 30,
+            opacity: 0,
+            duration: 0.9,
+            stagger: 0.15,
+            ease: "power3.out"
+        });
+
+        // 2. Dynamic Rotating Text GSAP Loop
+        const phrases = [
+            "Direct Conversations",
+            "Zero Commissions",
+            "Maximum Conversions",
+            "Lightning Speed"
+        ];
+        let currentIndex = 0;
+        const textElement = document.getElementById("dynamic-web-text");
+
+        function rotateText() {
+            gsap.to(textElement, {
+                y: -15,
+                opacity: 0,
+                duration: 0.4,
+                ease: "power2.in",
+                onComplete: () => {
+                    currentIndex = (currentIndex + 1) % phrases.length;
+                    textElement.textContent = phrases[currentIndex];
+                    gsap.set(textElement, { y: 15 });
+                    gsap.to(textElement, {
+                        y: 0,
+                        opacity: 1,
+                        duration: 0.5,
+                        ease: "power2.out"
+                    });
+                }
+            });
+        }
+        setInterval(rotateText, 3200);
+
+        /* =========================================================
+           GSAP INTERACTIVE LAB CODE SHOWCASE
+        ========================================================= */
+
+        // Module 1: Grid Stagger Wave
+        document.getElementById("trigger-wave-btn").addEventListener("click", () => {
+            gsap.to(".grid-node", {
+                scale: 0.7,
+                backgroundColor: "#C85A32",
+                color: "#ffffff",
+                yoyo: true,
+                repeat: 1,
+                duration: 0.3,
+                stagger: {
+                    grid: [4, 4],
+                    from: "center",
+                    amount: 0.6
+                },
+                ease: "power2.inOut"
+            });
+        });
+
+        // Module 2: Live Timeline Animation Controller
+        const demoTl = gsap.timeline({ paused: true, repeat: -1, yoyo: true });
+        demoTl.to("#timeline-box", { x: 140, rotation: 360, borderRadius: "50%", backgroundColor: "#C85A32", duration: 1.5, ease: "back.inOut(1.7)" })
+            .to("#timeline-box", { scale: 1.2, duration: 0.5 });
+
+        demoTl.play();
+
+        document.getElementById("tl-play").addEventListener("click", () => demoTl.play());
+        document.getElementById("tl-pause").addEventListener("click", () => demoTl.pause());
+        document.getElementById("tl-reverse").addEventListener("click", () => demoTl.reverse());
+        let fast = false;
+        document.getElementById("tl-speed").addEventListener("click", () => {
+            fast = !fast;
+            demoTl.timeScale(fast ? 2.5 : 1);
+            document.getElementById("tl-speed").innerText = fast ? "1x Normal" : "⚡ 2x Speed";
+        });
+
+        // Module 3: 3D Cursor Vector Response
+        const tiltWrapper = document.getElementById("tilt-card-wrapper");
+        const tiltCard = document.getElementById("tilt-card");
+
+        const xTo = gsap.quickTo(tiltCard, "rotationY", { duration: 0.4, ease: "power2.out" });
+        const yTo = gsap.quickTo(tiltCard, "rotationX", { duration: 0.4, ease: "power2.out" });
+
+        tiltWrapper.addEventListener("mousemove", (e) => {
+            const rect = tiltWrapper.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            xTo((x / rect.width) * 30);
+            yTo(-(y / rect.height) * 30);
+        });
+
+        tiltWrapper.addEventListener("mouseleave", () => {
+            xTo(0);
+            yTo(0);
+        });
+
+        // Module 4: Kinetic Numerical Counter
+        function runCounters() {
+            const obj1 = { val: 0 };
+            const obj2 = { val: 0 };
+
+            gsap.to(obj1, {
+                val: 100,
+                duration: 2,
+                ease: "power3.out",
+                onUpdate: () => {
+                    document.getElementById("counter-1").innerText = Math.floor(obj1.val);
+                }
+            });
+
+            gsap.to(obj2, {
+                val: 48500,
+                duration: 2.5,
+                ease: "power3.out",
+                onUpdate: () => {
+                    document.getElementById("counter-2").innerText = Math.floor(obj2.val).toLocaleString();
+                }
+            });
+        }
+        setTimeout(runCounters, 800);
+        document.getElementById("trigger-counter-btn").addEventListener("click", runCounters);
+
+        // Module 5: Magnetic Button Physics
+        const magArea = document.getElementById("magnetic-area");
+        const magBtn = document.getElementById("magnetic-btn");
+        const magX = gsap.quickTo(magBtn, "x", { duration: 0.3, ease: "power3.out" });
+        const magY = gsap.quickTo(magBtn, "y", { duration: 0.3, ease: "power3.out" });
+
+        magArea.addEventListener("mousemove", (e) => {
+            const rect = magArea.getBoundingClientRect();
+            const x = e.clientX - (rect.left + rect.width / 2);
+            const y = e.clientY - (rect.top + rect.height / 2);
+            magX(x * 0.4);
+            magY(y * 0.4);
+        });
+
+        magArea.addEventListener("mouseleave", () => {
+            magX(0);
+            magY(0);
+        });
+
+        // Module 6: Cyberpunk Text Scrambler
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$&%";
+        const targetText = "BY_JANNO_STUDIO";
+        const scrambleTextEl = document.getElementById("scramble-text");
+
+        function scramble() {
+            let iterations = 0;
+            const interval = setInterval(() => {
+                scrambleTextEl.innerText = targetText
+                    .split("")
+                    .map((char, index) => {
+                        if (index < iterations) return targetText[index];
+                        return chars[Math.floor(Math.random() * chars.length)];
+                    })
+                    .join("");
+
+                if (iterations >= targetText.length) clearInterval(interval);
+                iterations += 1 / 2;
+            }, 30);
+        }
+
+        document.getElementById("trigger-scramble-btn").addEventListener("click", scramble);
+    </script>
+</body>
+
+</html>
